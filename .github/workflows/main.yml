@@ -33,6 +33,10 @@ jobs:
         run: yarn build
 
       - name: Semantic Release
+        permissions:
+          contents: read
+          pages: write
+          id-token: write
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
