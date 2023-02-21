@@ -1,5 +1,8 @@
 # This is a basic workflow to help you get started with Actions
-
+permissions:
+          contents: read
+          pages: write
+          id-token: write
 name: Semantic Release
 
 # Controls when the workflow will run
@@ -33,10 +36,7 @@ jobs:
         run: yarn build
 
       - name: Semantic Release
-        permissions:
-          contents: read
-          pages: write
-          id-token: write
+        
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
